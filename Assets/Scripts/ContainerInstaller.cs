@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Containers;
+using Assets.Scripts.GameManagers;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -23,5 +25,12 @@ public class ContainerInstaller : MonoInstaller {
         //
         //zeby wyciagnac z kontenera (lepiej wstrzyknac jak wyzej niz wyciagac z kotenera! ale nie zawsze sie da)
         //ContainerInstaller.diContainer.Resolve<IPlayerContainer>();
+
+
+
+        diContainer.Bind<IPlayerContainer>()
+            .To<PlayerContainer>()
+            .AsSingle();
+
     }
 }
