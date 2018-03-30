@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterAnimController : MonoBehaviour
 {
     private Animator anim;
+    private PlayerDetector playerDetector;
+
     private float move = 0;
     private bool isJumping = false;
     private bool isReturning = false;
@@ -22,6 +24,7 @@ public class CharacterAnimController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        playerDetector = GetComponent<PlayerDetector>();
     }
 
 
@@ -39,9 +42,7 @@ public class CharacterAnimController : MonoBehaviour
         if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
         {
             move = Input.GetAxis("Horizontal");
-            Debug.Log("kurwa");
-            translation = move *
-            speed * Time.deltaTime;
+            translation = move * speed * Time.deltaTime;
         }
         else
         {
@@ -50,13 +51,15 @@ public class CharacterAnimController : MonoBehaviour
             speed * Time.deltaTime * jumpingSpeed;
         }
 
-        if (translation > 0)
+        if (true&& translation > 0)
         {
+            transform.Translate(0, 0, translation);
             anim.SetBool("IsRunning", true);
             anim.SetBool("IsRunningBack", false);
         }
         else if (translation < 0)
         {
+            transform.Translate(0, 0, translation);
             anim.SetBool("IsRunningBack", true);
             anim.SetBool("IsRunning", false);
         }
@@ -66,36 +69,7 @@ public class CharacterAnimController : MonoBehaviour
             anim.SetBool("IsRunning", false);
             anim.SetBool("IsRunningBack", false);
         }
-        transform.Translate(0, 0, translation);
-    }
-
-    private void Rotation()
-    {
-        if (!isReturning && move > 0 && (int)transform.rotation.eulerAngles.y == 0)
-        {
-        //    isRotating = true;
-            anim.SetBool("IsReturning", true);
-            move = 0;
-          //  StartCoroutine(WaitForRotating());
-            //transform.rotation = Quaternion.Euler(
-            //    transform.rotation.x,
-            //    180, transform.rotation.z);
-        }
-        else
-        if (!isReturning && move < 0 && (int)transform.rotation.eulerAngles.y == 180)
-        {
-          //  isRotating = true;
-            anim.SetBool("IsReturning", true);
-            StartCoroutine(WaitForAnimation(
-                anim.GetCurrentAnimatorStateInfo(0).length,
-                anim.GetCurrentAnimatorStateInfo(0).speed, "IsReturning"));
-            //    StartCoroutine(WaitForRotating());
-            //transform.eulerAngles = new Vector3(
-            //    transform.rotation.x,
-            //    0, transform.rotation.z);
-
-        }
-    }
+    }   
 
     private void Jump()
     {

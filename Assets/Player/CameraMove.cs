@@ -9,7 +9,7 @@ public class CameraMove : MonoBehaviour {
     {
         gameObject.transform.position = new Vector3(
             gameObject.transform.position.x,
-            gameObject.transform.position.y, 
+            player.transform.position.y + 2, 
             player.transform.position.z+2);
     }
 }
