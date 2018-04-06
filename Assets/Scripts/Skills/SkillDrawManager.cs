@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class SkillDrawManager : MonoBehaviour
 {
-    public Transform gestureOnScreenPrefab;
-    public GameObject gestureArea;
+    [SerializeField]
+    private Transform gestureOnScreenPrefab;    
 
     private RuntimePlatform platform;
 
@@ -16,8 +16,7 @@ public class SkillDrawManager : MonoBehaviour
     private LineRenderer currentGestureLineRenderer;
     private Rect drawArea;
     private int vertexCount = 0;
-
-    private List<Gesture> trainingSet = new List<Gesture>();
+    
     private List<Point> points = new List<Point>();
     private int strokeId = -1;
 
@@ -26,25 +25,21 @@ public class SkillDrawManager : MonoBehaviour
     void Start ()
     {
         platform = Application.platform;        
-        RectTransform rt = gestureArea.GetComponent<RectTransform>();       
+        RectTransform rt = this.GetComponent<RectTransform>();
 
-        drawArea = RectTransformToWorld(rt);                
-        TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/10-stylus-MEDIUM/");
-        foreach (TextAsset gestureXml in gesturesXml)
-        {
-            trainingSet.Add(GestureIO.ReadGestureFromXML(gestureXml.text));
-        }
-        Debug.Log(string.Format("Loaded Gestures count: {0}", trainingSet.Count));
+        drawArea = RectTransformToWorld(rt);           
+        Debug.Log(string.Format("DrawArea Position: ({0}, {1})", drawArea.position.x, drawArea.position.y));
+        Debug.Log(string.Format("DrawArea Size: ({0}, {1})", drawArea.size.x, drawArea.size.y));                
     }
 		
 	void Update ()
     {
-        if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer)
+        if (platform == RuntimePlatform.Android)
         {
             if (Input.touchCount > 0)
             {
                 virtualKeyPosition = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
-                Debug.Log(string.Format("VirtualKeyPosition - Position: ({0}, {1})", virtualKeyPosition.x, virtualKeyPosition.y));
+                //Debug.Log(string.Format("VirtualKeyPosition - Position: ({0}, {1})", virtualKeyPosition.x, virtualKeyPosition.y));
             }
         }
         else
@@ -52,7 +47,7 @@ public class SkillDrawManager : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
-                Debug.Log(string.Format("VirtualKeyPosition - Position: ({0}, {1})", virtualKeyPosition.x, virtualKeyPosition.y));
+                //Debug.Log(string.Format("VirtualKeyPosition - Position: ({0}, {1})", virtualKeyPosition.x, virtualKeyPosition.y));
             }
         }            
 
@@ -99,17 +94,13 @@ public class SkillDrawManager : MonoBehaviour
         if(Input.GetMouseButtonUp(0))
         {
             recognized = true;
-
-            Gesture candidate = new Gesture(points.ToArray());
-            Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
-
-            Debug.Log(gestureResult.GestureClass + " " + System.Math.Round(gestureResult.Score, 2));
+            Messenger<List<Point>>.Broadcast(GameEvent.SKILL_DRAW, points);            
         }
 	}    
 
     private Rect RectTransformToWorld(RectTransform rt)
-    {        
+    {
         //Trzeba zmienić sposób pozycjonowania Recta!
-        return new Rect(Screen.width / 2, Screen.height / 4, Screen.width / 2, Screen.height / 2);
+        return new Rect(Screen.width / 2, Screen.height / 4, Screen.width / 2, Screen.height / 2);        
     }    
 }
