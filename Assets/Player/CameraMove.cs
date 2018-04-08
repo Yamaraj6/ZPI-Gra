@@ -8,8 +8,8 @@ public class CameraMove : MonoBehaviour {
 	void Update ()
     {
         gameObject.transform.position = new Vector3(
-            gameObject.transform.position.x,
-            gameObject.transform.position.y, 
-            player.transform.position.z+2);
+            player.transform.position.x ,
+            player.transform.position.y + 2,
+            gameObject.transform.position.z);
     }
 }
