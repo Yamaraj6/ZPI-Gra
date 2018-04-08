@@ -11,7 +11,7 @@ public class PlayerDetector : MonoBehaviour {
     [SerializeField]
     private float maxDistance;
     [SerializeField]
-    private List<Vector3> cubeSizes;
+    private Vector3 cubeSize;
 
     private List<BoxCaster> boxCasters;
 
@@ -34,7 +34,7 @@ public class PlayerDetector : MonoBehaviour {
         boxCasters.Add(leftBoxCaster);
         for (int i = 0; i < 6; i++)
         {
-            boxCasters[i] = new BoxCaster(gameObject, heights[i], maxDistance, cubeSizes[i],
+            boxCasters[i] = new BoxCaster(gameObject, heights[i], maxDistance, cubeSize,
                 (Direction)i);
         }
     }
@@ -47,8 +47,8 @@ public class PlayerDetector : MonoBehaviour {
 
     private void OnDrawGizmosSelected()
     {
-        foreach (var caster in boxCasters)
-            caster.DrawCubeGizoms();
+        //foreach (var caster in boxCasters)
+        //    caster.DrawCubeGizoms();
     }
 
 }

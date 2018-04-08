@@ -45,7 +45,6 @@ public class BoxCaster
             currentHitDistance = maxDistance;
             currentHitObject = null;
         }
-
     }
 
     public void DrawCubeGizoms()
