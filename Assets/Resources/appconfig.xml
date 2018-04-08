@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CharacterAnimationController>
+    <Speed>10</Speed>
+    <JumpingSpeed>10</JumpingSpeed>
+    <RotatingSpeed>10</RotatingSpeed>
+</CharacterAnimationController>
