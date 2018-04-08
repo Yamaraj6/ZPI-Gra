@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class CharacterAnimController : MonoBehaviour
 {
@@ -27,18 +28,17 @@ public class CharacterAnimController : MonoBehaviour
 
     private void Running()
     {
-        if (Input.GetAxis("Horizontal") > 0)
+        if (CrossPlatformInputManager.GetAxis("Horizontal") > 0)
         {
             anim.SetBool("IsRunning", true);
             anim.SetBool("IsRunningBack", false);
         }
-        else if (Input.GetAxis("Horizontal") < 0)
+        else if (CrossPlatformInputManager.GetAxis("Horizontal") < 0)
         {
             anim.SetBool("IsRunningBack", true);
             anim.SetBool("IsRunning", false);
         }
-        else if (!Input.GetKeyDown(KeyCode.LeftArrow)
-            && !Input.GetKeyDown(KeyCode.RightArrow))
+        else if (CrossPlatformInputManager.GetAxis("Horizontal") == 0)
         {
             anim.SetBool("IsRunning", false);
             anim.SetBool("IsRunningBack", false);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private void Running()
     {
-        float move = Input.GetAxis("Horizontal");
+        float move = CrossPlatformInputManager.GetAxis("Horizontal");
         if (controller.isGrounded)
         {
             moveVelocity = move * speed;
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded)
         {
             verticalVelocity = -gravity * Time.deltaTime;
-            if (Input.GetAxis("Vertical") > 0)
+            if (CrossPlatformInputManager.GetAxis("Vertical") > 0)
             {
                 verticalVelocity = jumpForce;
                 isJumping = true;
