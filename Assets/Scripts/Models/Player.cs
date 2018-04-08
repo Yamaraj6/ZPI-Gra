@@ -14,7 +14,5 @@ namespace Assets.Scripts.Models
         public int Health { get; set; }
         public List<Card> EquippedCards { get; set; }
 
-
-
     }
 }

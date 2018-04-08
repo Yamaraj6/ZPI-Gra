@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Containers;
+﻿using Assets.Scripts.Configuration;
+using Assets.Scripts.Containers;
 using Assets.Scripts.GameManagers;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,5 +33,11 @@ public class ContainerInstaller : MonoInstaller {
             .To<PlayerContainer>()
             .AsSingle();
 
+        diContainer.Bind<MyConfig>()
+            .AsSingle(new MyConfig());
+
+        diContainer.Bind<ICharacterAnimationControllerConfigurationProvider>()
+            .To<CharacterAnimationControllerConfigurationProvider>()
+            .AsSingle();
     }
 }

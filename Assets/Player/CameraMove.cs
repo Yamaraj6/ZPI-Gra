@@ -38,5 +38,9 @@ public class CameraMove : MonoBehaviour {
         gameObject.transform.position = smoothedPosition;
         
         transform.forward = boss.transform.position + cameraOffset_boss_fromBoss - transform.position;
+        gameObject.transform.position = new Vector3(
+            player.transform.position.x ,
+            player.transform.position.y + 2,
+            gameObject.transform.position.z);
     }
 }
