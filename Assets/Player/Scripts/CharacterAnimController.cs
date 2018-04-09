@@ -5,6 +5,9 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class CharacterAnimController : MonoBehaviour
 {
+    public bool isCastingSpell { get; private set; } = false;
+    private bool flagSpell = false;
+
     private Animator anim;
     private CharacterController controller;
     private PlayerController playerController;
@@ -23,22 +26,30 @@ public class CharacterAnimController : MonoBehaviour
     {
         Running();
         Jump();
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("CastSpell") && flagSpell)
+        {
+            StartCoroutine(WaitForAnimation(
+                    anim.GetCurrentAnimatorStateInfo(0).length,
+                    anim.GetCurrentAnimatorStateInfo(0).speed));
+            flagSpell = false;
+        }
     }
 
 
     private void Running()
     {
-        if (CrossPlatformInputManager.GetAxis("Horizontal") > 0)
+        if (CrossPlatformInputManager.GetButton("Right"))
         {
             anim.SetBool("IsRunning", true);
             anim.SetBool("IsRunningBack", false);
         }
-        else if (CrossPlatformInputManager.GetAxis("Horizontal") < 0)
+        else if (CrossPlatformInputManager.GetButton("Left"))
         {
             anim.SetBool("IsRunningBack", true);
             anim.SetBool("IsRunning", false);
         }
-        else if (CrossPlatformInputManager.GetAxis("Horizontal") == 0)
+        else 
         {
             anim.SetBool("IsRunning", false);
             anim.SetBool("IsRunningBack", false);
@@ -52,13 +63,26 @@ public class CharacterAnimController : MonoBehaviour
             anim.SetTrigger("Jump");
             StartCoroutine(WaitForAnimation(
                     anim.GetCurrentAnimatorStateInfo(0).length,
-                    anim.GetCurrentAnimatorStateInfo(0).speed, "IsJumping"));
+                    anim.GetCurrentAnimatorStateInfo(0).speed));
         }
     }
 
-    private IEnumerator WaitForAnimation(float length, float speed, string paramName)
+    public void CastSpell(int spellNuber)
+    {
+        if (isCastingSpell || flagSpell)
+        {
+            return;
+        }
+        flagSpell = true;
+        isCastingSpell = true;
+        anim.SetInteger("SpellNumber", 1);
+        anim.SetTrigger("CastSpell");
+    }        
+
+    private IEnumerator WaitForAnimation(float length, float speed)
     {
         var tempTime = length * (1 / speed);
-        yield return new WaitForSeconds(tempTime * 0.75f);
+        yield return new WaitForSeconds(tempTime);
+        isCastingSpell = false;
     }
 }
