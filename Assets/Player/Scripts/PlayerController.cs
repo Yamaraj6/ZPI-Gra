@@ -5,13 +5,14 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
+    public static bool bossArea = false; //Kori
     public bool isJumping { get; private set; } = false;
 
         private CharacterController controller;
     private CharacterAnimController characterAnimController;
 
     private float gravity = 14.0f;
-    private float jumpForce = 5.0f;    
+    private float jumpForce = 6.0f;    
 
 
     [SerializeField]
@@ -34,11 +35,21 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        Running();
-        Jump();
-        controller.Move(new Vector3(moveVelocity, verticalVelocity, 0) * Time.deltaTime);
+        if (!bossArea)
+        {
+            Running();
+            Jump();
+            controller.Move(new Vector3(moveVelocity, verticalVelocity, 0) * Time.deltaTime);
+        } else
+        {
+            //Kori
+            LookAtBoss();
+            MoveInBossArea();
+            //controller.Move(new Vector3(moveVelocity, 0, verticalVelocity));
+        }
+        
     }
 
     private void Running()
@@ -75,6 +86,37 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             verticalVelocity -= gravity * Time.deltaTime;
+        }
+    }
+
+    //Kori
+    private void MoveInBossArea()
+    {
+        float axisX = CrossPlatformInputManager.GetAxis("Horizontal");
+        float axisZ = CrossPlatformInputManager.GetAxis("Vertical");
+        Vector3 motion = Vector3.zero;
+
+        if (controller.isGrounded)
+        {
+            motion = new Vector3(axisX, 0, axisZ);
+            motion = transform.TransformDirection(motion) * speed;
+            verticalVelocity = 0;
+        }
+
+        verticalVelocity -= gravity * Time.deltaTime;
+
+        motion.y = verticalVelocity;
+        controller.Move(motion * Time.deltaTime);
+    }
+
+    //Kori
+    private void LookAtBoss()
+    {
+        if (bossArea)
+        {
+            Vector3 _target = GameObject.FindGameObjectWithTag("Boss").transform.position;
+            _target.y = transform.position.y;
+            transform.LookAt(_target);
         }
     }
 }
