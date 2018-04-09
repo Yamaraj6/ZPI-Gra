@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class CameraMove : MonoBehaviour {
 
@@ -14,11 +15,25 @@ public class CameraMove : MonoBehaviour {
     public Vector3 cameraOffset_boss_fromPlayer;
     [HideInInspector]
     public Vector3 cameraOffset_boss_fromBoss;
+    [HideInInspector]
+    public float bossSmoothSpeed = 0.125f;
 
+    private static bool bossArea = false;
+    #region Instance
+    private static CameraMove GetInstance { get; set; }
+
+    private void Awake()
+    {
+        if (GetInstance == null)
+        {
+            GetInstance = this;
+        }
+    }
+    #endregion
 
     void LateUpdate()
     {
-        if (!bossLevel)
+        if (!bossArea || !bossLevel)
             MoveClassicCamera();
         else
             MoveBossCamera();
@@ -32,15 +47,32 @@ public class CameraMove : MonoBehaviour {
     }
 
     void MoveBossCamera()
-    {        
-        Vector3 targetPosition = player.transform.position + cameraOffset_boss_fromPlayer;
+    {
+        Vector3 targetPosition = player.transform.TransformPoint(cameraOffset_boss_fromPlayer);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed);
         gameObject.transform.position = smoothedPosition;
-        
-        transform.forward = boss.transform.position + cameraOffset_boss_fromBoss - transform.position;
-        gameObject.transform.position = new Vector3(
-            player.transform.position.x ,
-            player.transform.position.y + 2,
-            gameObject.transform.position.z);
+
+        Vector3 fwd = boss.transform.position + cameraOffset_boss_fromBoss - transform.position;
+        Vector3 smoothedFwd = Vector3.Lerp(transform.forward, fwd, bossSmoothSpeed);
+        transform.forward = smoothedFwd;
     }
+
+    public static void SetBossArea(bool isInBossArea)
+    {
+        GetInstance.RunCoroutine();
+        bossArea = isInBossArea;
+    }
+
+    private void RunCoroutine()
+    {
+        StartCoroutine(ChangingArea(2f));
+    }
+
+    private IEnumerator ChangingArea(float time)
+    {
+        float actual = bossSmoothSpeed;
+        bossSmoothSpeed = actual / 10;
+        yield return new WaitForSeconds(time);
+        bossSmoothSpeed = actual;
+    } 
 }
