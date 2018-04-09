@@ -24,10 +24,23 @@ public class SpellCaster : MonoBehaviour {
         // rzuć czar
         if (!characterAnim.isCastingSpell)
         {
-            var spell = Instantiate(spells[1].gameObject, gameObject.transform);
-            effectEvent.SetSpell(spell.GetComponent<Spell>());
-
-            characterAnim.CastSpell(1);
+            switch(gestureName)
+            {
+                case "default":
+                    Spell(0);
+                    break;
+                case "D":
+                    Spell(1);
+                    break;
+            }
         }
+    }
+
+    private void Spell(int spellNumber)
+    {
+
+        var spell = Instantiate(spells[spellNumber].gameObject, gameObject.transform);
+        effectEvent.SetSpell(spell.GetComponent<Spell>());
+        characterAnim.CastSpell(spellNumber);
     }
 }

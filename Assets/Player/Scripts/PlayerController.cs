@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
             MoveInBossArea();
             //controller.Move(new Vector3(moveVelocity, 0, verticalVelocity));
         }
+
         
     }
 

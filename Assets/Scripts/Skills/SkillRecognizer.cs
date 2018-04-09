@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SkillRecognizer : MonoBehaviour {
 
+    public SpellCaster spellCaster;
+
     private List<Gesture> trainingSet = new List<Gesture>();
     private const string TRAINING_SET_PATH = "GestureSet/10-stylus-MEDIUM/";
 
@@ -33,6 +35,7 @@ public class SkillRecognizer : MonoBehaviour {
         Gesture candidate = new Gesture(points.ToArray());
         Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
 
+        spellCaster.CastSpell(gestureResult.GestureClass);
         Debug.Log(gestureResult.GestureClass + " " + System.Math.Round(gestureResult.Score, 2));
     }
 }

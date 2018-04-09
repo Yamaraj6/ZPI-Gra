@@ -75,7 +75,7 @@ public class CharacterAnimController : MonoBehaviour
         }
         flagSpell = true;
         isCastingSpell = true;
-        anim.SetInteger("SpellNumber", 1);
+        anim.SetInteger("SpellNumber", spellNuber);
         anim.SetTrigger("CastSpell");
     }        
 
