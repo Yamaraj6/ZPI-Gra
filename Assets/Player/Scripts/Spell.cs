@@ -1,23 +1,21 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
-public class RFX4_EffectEvent : MonoBehaviour
-{
-    public GameObject CharacterEffect;
-    public Transform CharacterAttachPoint;
+public class Spell : MonoBehaviour {
+    [SerializeField]
+    private GameObject CharacterEffect;
+    [SerializeField]
+    private GameObject CharacterEffect2;
+    [SerializeField]
+    private GameObject Effect;
+    [SerializeField]
+    private GameObject AdditionalEffect;
 
-    public GameObject CharacterEffect2;
-    public Transform CharacterAttachPoint2;
-
-    public GameObject Effect;
-    public Transform AttachPoint;
-
-    public GameObject AdditionalEffect;
-    public Transform AdditionalEffectAttachPoint;
-
-    void OnEnable()
+    private void OnEnable()
     {
-        if (Effect!=null) {
+        if (Effect != null)
+        {
             Effect.SetActive(false);
         }
         if (AdditionalEffect != null)
@@ -36,7 +34,7 @@ public class RFX4_EffectEvent : MonoBehaviour
 
     public void ActivateEffect()
     {
-        if(Effect == null) return;
+        if (Effect == null) return;
         Effect.SetActive(true);
     }
 
@@ -51,16 +49,17 @@ public class RFX4_EffectEvent : MonoBehaviour
         if (CharacterEffect == null) return;
         CharacterEffect.SetActive(true);
     }
-    
+
     public void ActivateCharacterEffect2()
     {
         if (CharacterEffect2 == null) return;
         CharacterEffect2.SetActive(true);
     }
 
-
-    void LateUpdate()
+    public void SetSpellPosition(Transform CharacterAttachPoint, Transform CharacterAttachPoint2,
+        Transform AttachPoint, Transform AdditionalEffectAttachPoint)
     {
+
         if (Effect != null && AttachPoint != null)
         {
             Effect.transform.position = AttachPoint.position;

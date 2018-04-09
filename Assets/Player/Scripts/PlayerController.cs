@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour
     public bool isJumping { get; private set; } = false;
 
         private CharacterController controller;
+    private CharacterAnimController characterAnimController;
 
     private float gravity = 14.0f;
     private float jumpForce = 5.0f;    
 
 
     [SerializeField]
-    private float speed = 5.0f;
+    private float speed = 4.0f;
 
     [SerializeField]
     private float jumpingSpeed = 1.2f;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {       
         controller = GetComponent<CharacterController>();
+        characterAnimController = GetComponent<CharacterAnimController>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,11 @@ public class PlayerController : MonoBehaviour
 
     private void Running()
     {
+        if (characterAnimController.isCastingSpell)
+        {
+            moveVelocity = 0;
+            return;
+        }
         float move = CrossPlatformInputManager.GetAxis("Horizontal");
         if (controller.isGrounded)
         {
@@ -49,7 +56,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             moveVelocity = move *
-            speed *  jumpingSpeed;
+            speed * jumpingSpeed;
         }
     }
 
@@ -58,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded)
         {
             verticalVelocity = -gravity * Time.deltaTime;
-            if (CrossPlatformInputManager.GetAxis("Vertical") > 0)
+            if (CrossPlatformInputManager.GetButtonDown("Jump") && !characterAnimController.isCastingSpell)
             {
                 verticalVelocity = jumpForce;
                 isJumping = true;
