@@ -13,15 +13,13 @@ public class PlayerController : MonoBehaviour
 
     private float gravity = 14.0f;
     private float jumpForce = 6.0f;    
-
-
+    
     [SerializeField]
     private float speed = 4.0f;
 
     [SerializeField]
     private float jumpingSpeed = 1.2f;
-
-   
+       
 
     private float moveVelocity = 0;
     private float verticalVelocity = 0;

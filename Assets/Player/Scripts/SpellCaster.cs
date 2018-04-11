@@ -6,16 +6,14 @@ public class SpellCaster : MonoBehaviour {
 
     private CharacterAnimController characterAnim;
     private EffectEvent effectEvent;
-
-    float spellDuration;
-
+    
     [SerializeField]
     private Spell[] spells;
     
 	void Start () {
         characterAnim = gameObject.GetComponent<CharacterAnimController>();
         effectEvent = gameObject.GetComponent<EffectEvent>();
-        spells = GetComponentsInChildren<Spell>();
+    //    spells = GetComponentsInChildren<Spell>();
     }
 
     public void CastSpell(string gestureName)
@@ -32,14 +30,16 @@ public class SpellCaster : MonoBehaviour {
                 case "D":
                     Spell(1);
                     break;
+                case "six point star":
+                    Spell(2);                    
+                    break;
             }
         }
     }
 
     private void Spell(int spellNumber)
     {
-
-        var spell = Instantiate(spells[spellNumber].gameObject, gameObject.transform);
+        var spell = Instantiate(spells[spellNumber].gameObject);
         effectEvent.SetSpell(spell.GetComponent<Spell>());
         characterAnim.CastSpell(spellNumber);
     }

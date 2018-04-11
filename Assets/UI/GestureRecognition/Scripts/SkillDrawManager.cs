@@ -104,7 +104,7 @@ public class SkillDrawManager : MonoBehaviour
         points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
         currentGestureLineRenderer.positionCount = ++vertexCount;
         currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, virtualKeyPosition.z)));
-        Debug.Log(string.Format("Line Position: ({0}, {1}, {2})", currentGestureLineRenderer.GetPosition(vertexCount - 1).x, currentGestureLineRenderer.GetPosition(vertexCount - 1).y, currentGestureLineRenderer.GetPosition(vertexCount - 1).z));
+        //Debug.Log(string.Format("Line Position: ({0}, {1}, {2})", currentGestureLineRenderer.GetPosition(vertexCount - 1).x, currentGestureLineRenderer.GetPosition(vertexCount - 1).y, currentGestureLineRenderer.GetPosition(vertexCount - 1).z));
     }
 
     private void InstantiateNewLine()

@@ -45,10 +45,10 @@ public class PlayerDetector : MonoBehaviour {
             caster.CheckCollisions();
     }
 
-    private void OnDrawGizmosSelected()
+ /*   private void OnDrawGizmosSelected()
     {
         //foreach (var caster in boxCasters)
         //    caster.DrawCubeGizoms();
     }
-
+    */
 }

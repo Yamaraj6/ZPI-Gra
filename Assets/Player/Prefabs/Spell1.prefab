@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4281674723159348}
-  - component: {fileID: 114517247377001832}
+  - component: {fileID: 114264905484286066}
   m_Layer: 0
   m_Name: Spell1
   m_TagString: Untagged
@@ -209,15 +209,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479431552589114}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.757259, y: 0.5, z: 43.661}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4607013836426740}
   - {fileID: 4148868588712670}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4354420085508594
 Transform:
   m_ObjectHideFlags: 1
@@ -404,6 +404,24 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114264905484286066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479431552589114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc9b9fa2fb24bb438c79844c0c6c0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterEffect: {fileID: 1681600827798578}
+  CharacterEffect2: {fileID: 0}
+  Effect: {fileID: 1933799985485118}
+  AdditionalEffect: {fileID: 0}
+  StaticPartEffect: {fileID: 0}
+  staticEffectPositionRelationPlayer: {x: 0, y: 0, z: 0}
+  staticEffectRotationRelationPlayer: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &114411314468842092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,21 +544,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   AproximatedFlyDistance: -1
---- !u!114 &114517247377001832
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1479431552589114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302d93d67d694a44593825db99f254a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterEffect: {fileID: 1681600827798578}
-  CharacterEffect2: {fileID: 0}
-  Effect: {fileID: 1933799985485118}
-  AdditionalEffect: {fileID: 0}
 --- !u!114 &114574463962100094
 MonoBehaviour:
   m_ObjectHideFlags: 1

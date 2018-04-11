@@ -2,17 +2,18 @@
 using System.Collections;
 
 public class EffectEvent : MonoBehaviour
-{
-    private Spell spell;
-
+{    
     public Transform CharacterAttachPoint;    
     public Transform CharacterAttachPoint2;    
     public Transform AttachPoint;    
     public Transform AdditionalEffectAttachPoint;
 
+    private Spell spell;
+
     public void SetSpell(Spell spell)
     {
         this.spell = spell;
+        spell.SetupSpellPosition(gameObject.transform);
     }
 
     public void ActivateEffect()
@@ -51,7 +52,7 @@ public class EffectEvent : MonoBehaviour
     {
         if (spell != null)
         {
-            spell.SetSpellPosition(CharacterAttachPoint, CharacterAttachPoint2,
+            spell.UpdateSpellPosition(CharacterAttachPoint, CharacterAttachPoint2,
             AttachPoint, AdditionalEffectAttachPoint);
         }
     }
