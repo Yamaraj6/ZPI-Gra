@@ -94,12 +94,17 @@ public class PlayerController : MonoBehaviour
         float axisX = CrossPlatformInputManager.GetAxis("Horizontal");
         float axisZ = CrossPlatformInputManager.GetAxis("Vertical");
         Vector3 motion = Vector3.zero;
+        motion = new Vector3(axisX, 0, axisZ);
+        motion = transform.TransformDirection(motion) * speed;
 
         if (controller.isGrounded)
         {
-            motion = new Vector3(axisX, 0, axisZ);
-            motion = transform.TransformDirection(motion) * speed;
             verticalVelocity = 0;
+            if (CrossPlatformInputManager.GetButtonDown("Jump") && !characterAnimController.isCastingSpell)
+            {
+                verticalVelocity = jumpForce;
+                isJumping = true;
+            }
         }
 
         verticalVelocity -= gravity * Time.deltaTime;
