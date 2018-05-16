@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -21590,6 +21590,12 @@ Transform:
   m_Father: {fileID: 1662131969}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &886413360 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114954722929448180, guid: f09c0727b8036794383235cee80033e4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1872512345}
+  m_Script: {fileID: 11500000, guid: 1310e65397a274d44a776b51d6937f61, type: 3}
 --- !u!1 &888490207
 GameObject:
   m_ObjectHideFlags: 0
@@ -26583,7 +26589,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  regenerationSpeed: 0.005
+  regenerationDelay: 5
   text: {fileID: 241705065}
+  healthBar: {fileID: 0}
 --- !u!114 &1367782680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27087,6 +27096,7 @@ GameObject:
   - component: {fileID: 1439253777}
   - component: {fileID: 1439253776}
   - component: {fileID: 1439253775}
+  - component: {fileID: 1439253783}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -27209,6 +27219,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1439253783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1439253774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1868d46e44b40f44ab3c9934518b5c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  regenerationSpeed: 85.2
+  regenerationDelay: 1
+  text: {fileID: 0}
+  healthBar: {fileID: 886413360}
 --- !u!1 &1578227062
 GameObject:
   m_ObjectHideFlags: 0
@@ -31452,6 +31478,16 @@ Prefab:
         type: 2}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029417466878664, guid: f09c0727b8036794383235cee80033e4,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114267531119673822, guid: f09c0727b8036794383235cee80033e4,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f09c0727b8036794383235cee80033e4, type: 2}
