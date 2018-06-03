@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Gesture Name = "upside_down_triangle">
+	<Stroke>
+		<Point X = "685,8693" Y = "-198,995" T = "0" Pressure = "0" />
+		<Point X = "685,8693" Y = "-198,995" T = "0" Pressure = "0" />
+		<Point X = "657,7286" Y = "-236,1809" T = "0" Pressure = "0" />
+		<Point X = "554,2111" Y = "-348,7437" T = "0" Pressure = "0" />
+		<Point X = "486,8744" Y = "-427,1357" T = "0" Pressure = "0" />
+		<Point X = "485,8693" Y = "-429,1458" T = "0" Pressure = "0" />
+		<Point X = "485,8693" Y = "-429,1458" T = "0" Pressure = "0" />
+		<Point X = "514,01" Y = "-426,1307" T = "0" Pressure = "0" />
+		<Point X = "628,5829" Y = "-413,0653" T = "0" Pressure = "0" />
+		<Point X = "769,2864" Y = "-411,0553" T = "0" Pressure = "0" />
+		<Point X = "822,5527" Y = "-410,0503" T = "0" Pressure = "0" />
+		<Point X = "822,5527" Y = "-410,0503" T = "0" Pressure = "0" />
+		<Point X = "822,5527" Y = "-409,0452" T = "0" Pressure = "0" />
+		<Point X = "822,5527" Y = "-409,0452" T = "0" Pressure = "0" />
+		<Point X = "797,4271" Y = "-355,7789" T = "0" Pressure = "0" />
+		<Point X = "713,005" Y = "-233,1658" T = "0" Pressure = "0" />
+		<Point X = "662,7538" Y = "-179,8995" T = "0" Pressure = "0" />
+		<Point X = "661,7487" Y = "-177,8895" T = "0" Pressure = "0" />
+		<Point X = "661,7487" Y = "-175,8794" T = "0" Pressure = "0" />
+		<Point X = "661,7487" Y = "-174,8744" T = "0" Pressure = "0" />
+		<Point X = "661,7487" Y = "-174,8744" T = "0" Pressure = "0" />
+	</Stroke>
+</Gesture>

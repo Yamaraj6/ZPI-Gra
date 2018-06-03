@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Gesture Name = "vertical_line">
+	<Stroke>
+		<Point X = "713,005" Y = "-467,3367" T = "0" Pressure = "0" />
+		<Point X = "713,005" Y = "-467,3367" T = "0" Pressure = "0" />
+		<Point X = "712" Y = "-436,1809" T = "0" Pressure = "0" />
+		<Point X = "712" Y = "-349,7487" T = "0" Pressure = "0" />
+		<Point X = "709,9899" Y = "-214,0704" T = "0" Pressure = "0" />
+		<Point X = "703,9598" Y = "-105,5276" T = "0" Pressure = "0" />
+	</Stroke>
+</Gesture>
