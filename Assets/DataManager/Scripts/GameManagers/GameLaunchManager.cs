@@ -17,7 +17,7 @@ namespace Assets.Scripts.GameManagers
         {
             this.playerContainer = ContainerInstaller.diContainer.Resolve<IPlayerContainer>();
 
-            Debug.Log(playerContainer.Player.Name);
+     //       Debug.Log(playerContainer.Player.Name);
         }
 
 

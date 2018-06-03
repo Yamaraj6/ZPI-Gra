@@ -11,7 +11,7 @@ public class BossAreaEntry : MonoBehaviour {
         if (other.gameObject.tag == "Player" && !done)
         {
             CameraMove.SetBossArea(true);
-            PlayerController.bossArea = true;
+            other.gameObject.GetComponent<CharacterControllerRB>().bossArea = true;
             gameObject.GetComponent<BoxCollider>().enabled = true;
             gameObject.GetComponent<MeshRenderer>().enabled = true;
             done = true;

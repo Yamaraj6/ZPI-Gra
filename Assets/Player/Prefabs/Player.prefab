@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798308094167620}
   m_Layer: 0
-  m_Name: RightSpellCast
+  m_Name: RightHandEffectPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,7 +644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4194698562009126}
   m_Layer: 0
-  m_Name: LeftSpellCast
+  m_Name: LeftHandEffectPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1203,7 +1203,7 @@ Transform:
   - {fileID: 4893683831028652}
   - {fileID: 4020263576117538}
   m_Father: {fileID: 4632040122256984}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.7092762, y: -126.90327, z: 177.01395}
 --- !u!4 &4632040122256984
 Transform:
@@ -1215,8 +1215,8 @@ Transform:
   m_LocalPosition: {x: -5.68, y: 0.5, z: 45.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4882017565793996}
   - {fileID: 4628738720389788}
+  - {fileID: 4882017565793996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1387,7 +1387,7 @@ Transform:
   - {fileID: 4994129830183076}
   - {fileID: 4238329279196674}
   m_Father: {fileID: 4632040122256984}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4893683831028652
 Transform:
@@ -1511,8 +1511,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells:
-  - {fileID: 114586722099372040, guid: 17bd13b105efabe46bbb876c0a5e78f4, type: 2}
-  - {fileID: 0}
+  - {fileID: 114264905484286066, guid: d35e3d424ea58df408ba2040ef43a1db, type: 2}
+  - {fileID: 114028141599356074, guid: e313610d6782fcd4585c101b4b89635a, type: 2}
+  - {fileID: 114931994108657648, guid: 396b4e07d222f9440bcc956b6ad1ad23, type: 2}
 --- !u!114 &114471106115719450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1535,6 +1536,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab70c6d93004be9409736e8f57ec3163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterAttachPoint: {fileID: 4798308094167620}
+  CharacterAttachPoint2: {fileID: 4194698562009126}
+  AttachPoint: {fileID: 4798308094167620}
+  AdditionalEffectAttachPoint: {fileID: 0}
 --- !u!137 &137120030391009684
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

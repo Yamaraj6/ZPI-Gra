@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boss
+  - Attack
+  - PowerUp
+  - Snow
+  - Grass
+  - Wood
+  - Enemy
   - Platform
   layers:
   - Default

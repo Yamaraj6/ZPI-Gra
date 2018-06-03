@@ -35,7 +35,7 @@ public class SkillRecognizer : MonoBehaviour {
         Gesture candidate = new Gesture(points.ToArray());
         Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
 
-        spellCaster.CastSpell(gestureResult.GestureClass);
         Debug.Log(gestureResult.GestureClass + " " + System.Math.Round(gestureResult.Score, 2));
+        spellCaster.CastSpell(gestureResult.GestureClass);
     }
 }

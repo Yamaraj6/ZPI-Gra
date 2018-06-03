@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SpellCaster : MonoBehaviour {
 
-    private CharacterAnimController characterAnim;
+  //  private CharacterAnimController characterAnim;
+    private CharacterControllerRB controller;
+    private Animator animator;
     private EffectEvent effectEvent;
     
     [SerializeField]
-    private Spell[] spells;
+    private SpellEffect[] spells;
     
 	void Start () {
-        characterAnim = gameObject.GetComponent<CharacterAnimController>();
+   //     characterAnim = gameObject.GetComponent<CharacterAnimController>();
+        controller = GetComponent<CharacterControllerRB>();
+        animator = GetComponent<Animator>();
         effectEvent = gameObject.GetComponent<EffectEvent>();
     //    spells = GetComponentsInChildren<Spell>();
     }
@@ -20,7 +24,7 @@ public class SpellCaster : MonoBehaviour {
     {
         // znajdz gest w czarach
         // rzuć czar
-        if (!characterAnim.isCastingSpell)
+        if (controller.isGrounded) //&& !characterAnim.isCastingSpell)
         {
             switch(gestureName)
             {
@@ -39,8 +43,9 @@ public class SpellCaster : MonoBehaviour {
 
     private void Spell(int spellNumber)
     {
-        var spell = Instantiate(spells[spellNumber].gameObject);
-        effectEvent.SetSpell(spell.GetComponent<Spell>());
-        characterAnim.CastSpell(spellNumber);
+        animator.SetTrigger("CastSpell");
+        var spell = Instantiate(spells[spellNumber].gameObject, gameObject.transform.position, gameObject.transform.rotation);
+        effectEvent.SetSpell(spell.GetComponent<SpellEffect>());
+      //  characterAnim.CastSpell(spellNumber);
     }
 }
