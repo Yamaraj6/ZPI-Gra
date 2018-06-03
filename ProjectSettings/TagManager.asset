@@ -11,6 +11,7 @@ TagManager:
   - Grass
   - Wood
   - Enemy
+  - Platform
   layers:
   - Default
   - TransparentFX
