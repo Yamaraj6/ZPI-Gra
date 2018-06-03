@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4646862528079804}
   - component: {fileID: 114863295362700598}
+  - component: {fileID: 135922650792062966}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -210,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479431552589114}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.5095963, y: 0.5000001, z: 45.66462}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4607013836426740}
@@ -732,6 +733,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeactivateTime: 2.4
+--- !u!135 &135922650792062966
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971240263554678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198400924548390872
 ParticleSystem:
   m_ObjectHideFlags: 1

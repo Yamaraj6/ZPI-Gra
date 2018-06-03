@@ -8,9 +8,9 @@ public class EffectEvent : MonoBehaviour
     public Transform AttachPoint;    
     public Transform AdditionalEffectAttachPoint;
 
-    private Spell spell;
+    private SpellEffect spell;
 
-    public void SetSpell(Spell spell)
+    public void SetSpell(SpellEffect spell)
     {
         this.spell = spell;
         spell.SetupSpellPosition(gameObject.transform);
