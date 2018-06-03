@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Gesture Name = "half_hourglass">
+	<Stroke>
+		<Point X = "585,3668" Y = "-498,4925" T = "0" Pressure = "0" />
+		<Point X = "614,5126" Y = "-475,3769" T = "0" Pressure = "0" />
+		<Point X = "736,1206" Y = "-354,7739" T = "0" Pressure = "0" />
+		<Point X = "859,7386" Y = "-256,2814" T = "0" Pressure = "0" />
+		<Point X = "891,8995" Y = "-231,1558" T = "0" Pressure = "0" />
+		<Point X = "892,9045" Y = "-229,1457" T = "0" Pressure = "0" />
+		<Point X = "854,7136" Y = "-220,1005" T = "0" Pressure = "0" />
+		<Point X = "725,0653" Y = "-215,0754" T = "0" Pressure = "0" />
+		<Point X = "614,5126" Y = "-203,0151" T = "0" Pressure = "0" />
+		<Point X = "596,4221" Y = "-201,005" T = "0" Pressure = "0" />
+		<Point X = "596,4221" Y = "-201,005" T = "0" Pressure = "0" />
+		<Point X = "596,4221" Y = "-201,005" T = "0" Pressure = "0" />
+		<Point X = "614,5126" Y = "-233,1658" T = "0" Pressure = "0" />
+		<Point X = "678,8342" Y = "-290,4523" T = "0" Pressure = "0" />
+		<Point X = "811,4975" Y = "-393,9698" T = "0" Pressure = "0" />
+		<Point X = "889,8894" Y = "-495,4774" T = "0" Pressure = "0" />
+		<Point X = "893,9095" Y = "-513,5679" T = "0" Pressure = "0" />
+		<Point X = "893,9095" Y = "-516,5829" T = "0" Pressure = "0" />
+		<Point X = "892,9045" Y = "-517,588" T = "0" Pressure = "0" />
+	</Stroke>
+</Gesture>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Gesture Name = "infinity">
+	<Stroke>
+		<Point X = "563,2563" Y = "-246,2312" T = "0" Pressure = "0" />
+		<Point X = "563,2563" Y = "-285,4272" T = "0" Pressure = "0" />
+		<Point X = "567,2764" Y = "-345,7286" T = "0" Pressure = "0" />
+		<Point X = "588,3819" Y = "-370,8543" T = "0" Pressure = "0" />
+		<Point X = "636,6231" Y = "-371,8593" T = "0" Pressure = "0" />
+		<Point X = "676,8241" Y = "-334,6734" T = "0" Pressure = "0" />
+		<Point X = "745,1658" Y = "-261,3065" T = "0" Pressure = "0" />
+		<Point X = "802,4523" Y = "-250,2513" T = "0" Pressure = "0" />
+		<Point X = "857,7286" Y = "-282,4121" T = "0" Pressure = "0" />
+		<Point X = "871,799" Y = "-326,6332" T = "0" Pressure = "0" />
+		<Point X = "867,7789" Y = "-363,8191" T = "0" Pressure = "0" />
+		<Point X = "813,5075" Y = "-354,7739" T = "0" Pressure = "0" />
+		<Point X = "769,2864" Y = "-324,6231" T = "0" Pressure = "0" />
+		<Point X = "739,1357" Y = "-305,5276" T = "0" Pressure = "0" />
+		<Point X = "710,995" Y = "-289,4472" T = "0" Pressure = "0" />
+		<Point X = "659,7387" Y = "-257,2864" T = "0" Pressure = "0" />
+		<Point X = "633,608" Y = "-241,206" T = "0" Pressure = "0" />
+		<Point X = "612,5025" Y = "-228,1407" T = "0" Pressure = "0" />
+		<Point X = "595,4171" Y = "-219,0955" T = "0" Pressure = "0" />
+		<Point X = "571,2965" Y = "-210,0503" T = "0" Pressure = "0" />
+		<Point X = "556,2211" Y = "-209,0452" T = "0" Pressure = "0" />
+		<Point X = "544,1608" Y = "-209,0452" T = "0" Pressure = "0" />
+		<Point X = "530,0905" Y = "-211,0553" T = "0" Pressure = "0" />
+		<Point X = "525,0654" Y = "-214,0704" T = "0" Pressure = "0" />
+		<Point X = "519,0352" Y = "-223,1156" T = "0" Pressure = "0" />
+		<Point X = "516,0201" Y = "-235,1759" T = "0" Pressure = "0" />
+		<Point X = "516,0201" Y = "-243,2161" T = "0" Pressure = "0" />
+		<Point X = "517,0251" Y = "-260,3015" T = "0" Pressure = "0" />
+		<Point X = "524,0603" Y = "-281,407" T = "0" Pressure = "0" />
+	</Stroke>
+</Gesture>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Gesture Name = "circle">
+	<Stroke>
+		<Point X = "694,9146" Y = "-442,2111" T = "0" Pressure = "0" />
+		<Point X = "614,5126" Y = "-447,2362" T = "0" Pressure = "0" />
+		<Point X = "529,0854" Y = "-413,0653" T = "0" Pressure = "0" />
+		<Point X = "489,8894" Y = "-323,6181" T = "0" Pressure = "0" />
+		<Point X = "487,8794" Y = "-224,1206" T = "0" Pressure = "0" />
+		<Point X = "533,1055" Y = "-170,8543" T = "0" Pressure = "0" />
+		<Point X = "640,6432" Y = "-162,8141" T = "0" Pressure = "0" />
+		<Point X = "761,2462" Y = "-198,995" T = "0" Pressure = "0" />
+		<Point X = "843,6583" Y = "-285,4272" T = "0" Pressure = "0" />
+		<Point X = "845,6683" Y = "-376,8844" T = "0" Pressure = "0" />
+		<Point X = "801,4472" Y = "-428,1407" T = "0" Pressure = "0" />
+		<Point X = "740,1407" Y = "-449,2462" T = "0" Pressure = "0" />
+		<Point X = "651,6985" Y = "-449,2462" T = "0" Pressure = "0" />
+		<Point X = "581,3467" Y = "-412,0603" T = "0" Pressure = "0" />
+	</Stroke>
+</Gesture>
