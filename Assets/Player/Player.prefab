@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 114036496399549660}
   - component: {fileID: 114946934496984484}
   - component: {fileID: 82983727509960154}
+  - component: {fileID: 82620440221332388}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1479,6 +1480,86 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!82 &82620440221332388
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809695882065760}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82983727509960154
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1610,19 +1691,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22265097c890e648b24ecce5df6cec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  experience: 0
+  lifes: 0
   health: 100
   mana: 100
   specialEffect: 0
-  spellPower: 0
   spellCastDuration: 0
-  defense: 0
 --- !u!114 &114373930940469266
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809695882065760}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 497ffda73adda3d4a85c113240509c78, type: 3}
   m_Name: 
@@ -1671,7 +1753,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809695882065760}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab70c6d93004be9409736e8f57ec3163, type: 3}
   m_Name: 
@@ -1699,6 +1781,7 @@ MonoBehaviour:
   hasJumpingSpace: 0
   colliderRadius: 0.45
   slopeAmount: 0.4
+  groundType: 
   isBusy: 0
 --- !u!114 &114946934496984484
 MonoBehaviour:
@@ -1711,18 +1794,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25c2614994698b4e8bbafb7e79f9a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: 0}
-  land: {fileID: 0}
-  footstep: {fileID: 0}
-  footstepWood: {fileID: 8300000, guid: bb47420c1b0c2be4392c199aff26c908, type: 3}
-  footstepGrass:
-  - {fileID: 8300000, guid: 023d6570664254849aa1f6479a9148fb, type: 3}
-  - {fileID: 8300000, guid: 4d8f93e2b7667904ea12aaf33363dd7a, type: 3}
-  - {fileID: 8300000, guid: a0b5eb8a84d14604d978e394bc4ca437, type: 3}
-  - {fileID: 8300000, guid: 011324dafe638e545886079c21cb46c5, type: 3}
-  - {fileID: 8300000, guid: 03302da1ab7273a40adc635958fe4d41, type: 3}
-  footstepSnow: {fileID: 0}
-  footstepWater: {fileID: 0}
+  death: {fileID: 8300000, guid: 1e3a15c843a9b6444bd9a1b739a6e237, type: 3}
+  hit: {fileID: 8300000, guid: b5ccaea5a5e010e4988e671940873fe9, type: 3}
+  grounds:
+  - name: Grass
+    footstepSound:
+    - {fileID: 8300000, guid: 023d6570664254849aa1f6479a9148fb, type: 3}
+    - {fileID: 8300000, guid: 4d8f93e2b7667904ea12aaf33363dd7a, type: 3}
+    - {fileID: 8300000, guid: a0b5eb8a84d14604d978e394bc4ca437, type: 3}
+    - {fileID: 8300000, guid: 011324dafe638e545886079c21cb46c5, type: 3}
+    - {fileID: 8300000, guid: 03302da1ab7273a40adc635958fe4d41, type: 3}
+    volume: 1
+    pitch: 1.2
+  - name: Wood
+    footstepSound:
+    - {fileID: 8300000, guid: a23396501a6506d4a850314e352157e2, type: 3}
+    - {fileID: 8300000, guid: 2bd9db62c30d96040902d85f995f3fa3, type: 3}
+    - {fileID: 8300000, guid: f453064d4ff706c45942a075d6131309, type: 3}
+    - {fileID: 8300000, guid: 40e32760dc0eead47ad8af44e8a0a82a, type: 3}
+    - {fileID: 8300000, guid: 2c0c6d6b3fb885e4b95f223fc5cb5996, type: 3}
+    volume: 0.8
+    pitch: 0.8
+  - name: Snow
+    footstepSound:
+    - {fileID: 8300000, guid: 76c7e93f81b5786468be6ea4454afefe, type: 3}
+    - {fileID: 8300000, guid: b7b4cde6f572dcf4a81845bcac2514be, type: 3}
+    - {fileID: 8300000, guid: e60a5c39343257846b3e435ee502948f, type: 3}
+    - {fileID: 8300000, guid: 58c4f69c3dc1a1e4383bfda9b2ffda5c, type: 3}
+    - {fileID: 8300000, guid: 92f1a79c0d26e3b46953df17b1279ac1, type: 3}
+    volume: 1
+    pitch: 1.2
 --- !u!136 &136068510834440988
 CapsuleCollider:
   m_ObjectHideFlags: 1

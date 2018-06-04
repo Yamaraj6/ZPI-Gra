@@ -82,7 +82,7 @@ public class EnemyAI : MonoBehaviour {
         motion -= transform.position;
         motion.y = -maxDistance;
 
-        Debug.Log(string.Format("Motion: {0}", motion.ToString()));
+       // Debug.Log(string.Format("Motion: {0}", motion.ToString()));
 
         controller.Move(motion);
     }
@@ -102,7 +102,7 @@ public class EnemyAI : MonoBehaviour {
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(string.Format("Hit: Point: {0}, MoveDir: {1}, Position: {2}", hit.point, "X: " + hit.moveDirection.x + " Y: " + hit.moveDirection.y, hit.transform.position));
+      //  Debug.Log(string.Format("Hit: Point: {0}, MoveDir: {1}, Position: {2}", hit.point, "X: " + hit.moveDirection.x + " Y: " + hit.moveDirection.y, hit.transform.position));
         if (hit.moveDirection.y == 0) {
             //Debug.Log("Controller Collider Hit, current Point: " + currentPoint);
             ChangeTargetPoint(true);

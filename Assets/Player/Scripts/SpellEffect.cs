@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class SpellEffect : MonoBehaviour
@@ -103,7 +103,7 @@ public class SpellEffect : MonoBehaviour
     }
 }
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(SpellEffect))]
 public class SpellEditor : Editor
 {
@@ -134,3 +134,4 @@ public class SpellEditor : Editor
         return new Quaternion(rot.x, rot.y, rot.z, rot.w);
     }
 }
+#endif
