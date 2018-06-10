@@ -1424,6 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 114029417466878664}
+  behindBarImage: {fileID: 0}
   colorMode: 0
   barColor: {r: 0, g: 0.5448277, b: 1, a: 1}
   barGradient:
@@ -2381,6 +2382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 114267531119673822}
+  behindBarImage: {fileID: 0}
   colorMode: 0
   barColor: {r: 1, g: 0, b: 0, a: 1}
   barGradient:

@@ -36,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728883550886674}
-  m_LocalRotation: {x: -0, y: 0.26803932, z: -0, w: 0.963408}
-  m_LocalPosition: {x: -5.65, y: 2.47, z: 38.318077}
+  m_LocalRotation: {x: 0, y: 0.10452846, z: 0, w: 0.9945219}
+  m_LocalPosition: {x: -20.85, y: 1.82, z: -5.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 121.09501, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 12, z: 0}
 --- !u!20 &20551476932392176
 Camera:
   m_ObjectHideFlags: 1
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cameraOffset: {x: 0, y: 2, z: -6}
+  cameraOffset: {x: 0, y: 3, z: -6}
   smoothSpeed: 0.125
-  bossLevel: 0
+  bossLevel: 1
   boss: {fileID: 0}
-  cameraOffset_boss_fromPlayer: {x: 0, y: 0, z: 0}
+  cameraOffset_boss_fromPlayer: {x: 0, y: 2.5, z: -3}
   cameraOffset_boss_fromBoss: {x: 0, y: 0, z: 0}
   bossSmoothSpeed: 0.125
 --- !u!124 &124675271594738428

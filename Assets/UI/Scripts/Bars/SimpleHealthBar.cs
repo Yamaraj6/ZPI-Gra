@@ -9,6 +9,7 @@ public class SimpleHealthBar : MonoBehaviour
 {	
 	// COLOR OPTIONS //
 	public Image barImage;
+    public Image behindBarImage; //Kori
 	public enum ColorMode
 	{
 		Single,
@@ -32,10 +33,31 @@ public class SimpleHealthBar : MonoBehaviour
 
 	// PRIVATE VARIABLES AND GET FUNCTIONS //
 	float _currentFraction = 1.0f;
-	/// <summary>
-	/// Returns the percentage value that was calculated when the bar was updated. This number will not be current with the Smooth Fill option.
-	/// </summary>
-	public float GetCurrentFraction
+    float _smoothFraction = 1.0f;
+
+    //Kori
+    private void Update()
+    {
+        UpdateBehindBar();
+    }
+
+    //Kori
+    private void UpdateBehindBar()
+    {
+        if (behindBarImage != null)
+        {
+            if (_smoothFraction > _currentFraction)
+            {
+                _smoothFraction = Mathf.Lerp(_smoothFraction, _currentFraction, Time.deltaTime);
+                behindBarImage.fillAmount = _smoothFraction;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Returns the percentage value that was calculated when the bar was updated. This number will not be current with the Smooth Fill option.
+    /// </summary>
+    public float GetCurrentFraction
 	{
 		get
 		{
@@ -111,7 +133,9 @@ public class SimpleHealthBar : MonoBehaviour
 		// If the bar image is left unassigned, then return.
 		if( barImage == null )
 			return;
-			
+
+        _smoothFraction = Mathf.Max(_currentFraction, _smoothFraction); //Kori
+
 		// Fix the value to be a percentage.
 		_currentFraction = currentValue / maxValue;
 
