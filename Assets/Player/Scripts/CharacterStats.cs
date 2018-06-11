@@ -9,8 +9,8 @@ public class CharacterStats : MonoBehaviour
     public float experience;
     public int lifes;
 
-    public float health = 100f;
-    public float mana = 100f;
+    public ResourceManager health;
+    public ResourceManager mana;
     public float specialEffect = 0;
     
     public float spellCastDuration = 1;
@@ -35,6 +35,12 @@ public class CharacterStats : MonoBehaviour
     {
     }
 
+    public void Update()
+    {
+        health.Update();
+        mana.Update();
+    }
+
     public float GetResistance(Element element)
     {
         return resistances[element];
@@ -42,12 +48,11 @@ public class CharacterStats : MonoBehaviour
 
     public void DealDamage(Attack damage)
     {
-        health -= (damage.power - GetResistance(damage.element));
-        if (health < 0) health = 0;
+        health.ReduceByValue(damage.power - GetResistance(damage.element));
     }
 
     public bool IsDead()
     {
-        return health == 0;
+        return health.IsEmpty();
     }
 }
