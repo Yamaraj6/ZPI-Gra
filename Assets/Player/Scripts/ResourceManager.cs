@@ -52,7 +52,7 @@ public class ResourceManager {
     public void Update()
     {
         CheckRegeneration();
-        Debug.Log("Update ResourceManager");
+  //      Debug.Log("Update ResourceManager");
         //Debug paska HP gracza:
         if (Input.GetKeyDown(KeyCode.P))
         {
