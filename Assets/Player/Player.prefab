@@ -976,7 +976,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809695882065760}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.557, y: 0.5, z: 45.44}
+  m_LocalPosition: {x: -22.06, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4844296811892924}
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spells:
   - {fileID: 114264905484286066, guid: d35e3d424ea58df408ba2040ef43a1db, type: 2}
-  - {fileID: 114028141599356074, guid: e313610d6782fcd4585c101b4b89635a, type: 2}
+  - {fileID: 114931994108657648, guid: 396b4e07d222f9440bcc956b6ad1ad23, type: 2}
   - {fileID: 114931994108657648, guid: 396b4e07d222f9440bcc956b6ad1ad23, type: 2}
 --- !u!114 &114374661730821528
 MonoBehaviour:
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -9.8
-  jumpSpeed: 8
+  jumpSpeed: 6
   maxFallingVelocity: 10
   maxInAirVelocity: 4
   inAirSpeed: 15
@@ -1773,7 +1773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f398f8ee60a004c85528d5eaca9759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossArea: 1
+  bossArea: 0
   freezeAxis: 8
   distanceToGround: 0
   distanceToFloor: 0

@@ -32,9 +32,11 @@ public class RFX4_TransformMotion : MonoBehaviour
     private bool isInitialized;
     private bool dropFirstFrameForFixUnityBugWithParticles;
     public event EventHandler<RFX4_CollisionInfo> CollisionEnter;
+    
 
     void Start()
     {
+        
         t = transform;
         startQuaternion = t.rotation;
         startPositionLocal = t.localPosition;

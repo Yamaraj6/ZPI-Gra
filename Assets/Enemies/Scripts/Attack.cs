@@ -6,10 +6,10 @@ public class Attack : MonoBehaviour {
     public GameObject damageDealer;
     public float power;
     public Element element;
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        if(damageDealer==null || other.tag != damageDealer.tag)
+        if((damageDealer==null || other.tag != damageDealer.tag) && gameObject.tag!= other.tag)
         {
             gameObject.GetComponent<Collider>().enabled = false;
         }

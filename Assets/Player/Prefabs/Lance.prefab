@@ -29,6 +29,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1089842242101504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4769799284916786}
+  - component: {fileID: 114342366760083396}
+  - component: {fileID: 135882476906623106}
+  m_Layer: 0
+  m_Name: SpellAttack
+  m_TagString: Attack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1479431552589114
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,8 +55,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4281674723159348}
   - component: {fileID: 114264905484286066}
+  - component: {fileID: 114022906799098502}
   m_Layer: 0
-  m_Name: Spell1
+  m_Name: Lance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4646862528079804}
   - component: {fileID: 114863295362700598}
-  - component: {fileID: 135922650792062966}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -189,7 +206,7 @@ Transform:
   m_Children:
   - {fileID: 4646862528079804}
   m_Father: {fileID: 4281674723159348}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4252962596905104
 Transform:
@@ -211,9 +228,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479431552589114}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.5095963, y: 0.5000001, z: 45.66462}
+  m_LocalPosition: {x: -21.564, y: 14, z: -2.011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4769799284916786}
   - {fileID: 4607013836426740}
   - {fileID: 4148868588712670}
   m_Father: {fileID: 0}
@@ -259,7 +277,7 @@ Transform:
   - {fileID: 4354420085508594}
   - {fileID: 4822804729993642}
   m_Father: {fileID: 4281674723159348}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4646862528079804
 Transform:
@@ -269,11 +287,24 @@ Transform:
   m_GameObject: {fileID: 1971240263554678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 4.062744}
   m_Children:
   - {fileID: 4252962596905104}
   - {fileID: 4365321920610122}
   m_Father: {fileID: 4148868588712670}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4769799284916786
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089842242101504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -100, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4281674723159348}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4822804729993642
@@ -405,6 +436,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114022906799098502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479431552589114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90630afca56343946af89f2c3f5353b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeForDestruction: 3
 --- !u!114 &114264905484286066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +466,20 @@ MonoBehaviour:
   StaticPartEffect: {fileID: 0}
   staticEffectPositionRelationPlayer: {x: 0, y: 0, z: 0}
   staticEffectRotationRelationPlayer: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114342366760083396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089842242101504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796bc5502a4d84f4f8dc15e537c3894f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealer: {fileID: 0}
+  power: 0
+  element: 0
 --- !u!114 &114411314468842092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -650,6 +707,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   EffectsOnCollision:
   - {fileID: 1027877914504370, guid: 14be841903f360340bd722a8d96dc467, type: 2}
+  - {fileID: 1089842242101504}
   CollisionOffset: 0
   DestroyTimeDelay: 5
   CollisionEffectInWorldSpace: 1
@@ -733,17 +791,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeactivateTime: 2.4
---- !u!135 &135922650792062966
+--- !u!135 &135882476906623106
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1971240263554678}
+  m_GameObject: {fileID: 1089842242101504}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198400924548390872
 ParticleSystem:
@@ -805,7 +863,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 0
+  randomSeed: -1605594165
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -961,7 +1019,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -1002,7 +1060,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -1043,7 +1101,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0
       minScalar: 6.283185
       maxCurve:
@@ -1072,7 +1130,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startRotationY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0
       minScalar: 6.283185
       maxCurve:
@@ -4022,7 +4080,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1768850696
+  randomSeed: 961207964
   InitialModule:
     serializedVersion: 3
     enabled: 1
