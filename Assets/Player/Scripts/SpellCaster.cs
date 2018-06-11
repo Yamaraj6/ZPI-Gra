@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellCaster : MonoBehaviour {
 
-  //  private CharacterAnimController characterAnim;
+[RequireComponent(typeof(CharacterControllerRB))]
+[RequireComponent(typeof(CharacterStats))]
+public class SpellCaster : MonoBehaviour
+{
     private CharacterControllerRB controller;
+    private CharacterStats stats;
     private Animator animator;
     private EffectEvent effectEvent;
     
@@ -15,6 +18,7 @@ public class SpellCaster : MonoBehaviour {
 	void Start () {
    //     characterAnim = gameObject.GetComponent<CharacterAnimController>();
         controller = GetComponent<CharacterControllerRB>();
+        stats = GetComponent<CharacterStats>();
         animator = GetComponent<Animator>();
         effectEvent = gameObject.GetComponent<EffectEvent>();
     //    spells = GetComponentsInChildren<Spell>();
@@ -24,14 +28,14 @@ public class SpellCaster : MonoBehaviour {
     {
         // znajdz gest w czarach
         // rzuć czar
-        if (controller.isGrounded) //&& !characterAnim.isCastingSpell)
+        if (controller.isGrounded && !controller.isBusy && controller.hasJumpingSpace)
         {
             switch(gestureName)
             {
                 case "default":
                     Spell(0);
                     break;
-                case "D":
+                case "spiral":
                     Spell(1);
                     break;
                 case "six point star":
@@ -43,9 +47,26 @@ public class SpellCaster : MonoBehaviour {
 
     private void Spell(int spellNumber)
     {
-        animator.SetTrigger("CastSpell");
-        var spell = Instantiate(spells[spellNumber].gameObject, gameObject.transform.position, gameObject.transform.rotation);
+        animator.SetTrigger("CastSpellTrigger");
+        animator.SetInteger("Spell", spellNumber);
+        var spell = Instantiate(spells[spellNumber], transform.position, transform.rotation);
         effectEvent.SetSpell(spell.GetComponent<SpellEffect>());
-      //  characterAnim.CastSpell(spellNumber);
+
+        StartCoroutine(IWaitForSpell());
+        // TU ATTACK CZARU NASTAWIC
+        var attack = spell.transform.GetComponentInChildren<Attack>();
+        attack.damageDealer = stats.gameObject;
+        attack.power = 50;
+        //  characterAnim.CastSpell(spellNumber);
     }
+
+    private IEnumerator IWaitForSpell()
+    {
+        controller.isBusy = true;
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsTag("Spell"));
+        controller.BeBusy(animator.GetCurrentAnimatorStateInfo(0).length
+            / animator.GetCurrentAnimatorStateInfo(0).speed);
+    }
+
 }
+

@@ -55,7 +55,7 @@ public class CharacterControllerJump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Mathf.Abs(rb.velocity.y) < maxFallingVelocity)
+        if (rb.velocity.y > -maxFallingVelocity)
         {
             rb.AddForce(0, gravity, 0, ForceMode.Acceleration);
         }

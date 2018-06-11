@@ -91,14 +91,10 @@ public class SpellEffect : MonoBehaviour
     {
         if (StaticPartEffect != null)
         {
-            Debug.Log("PT " + playerTransform.transform.position);
             gameObject.transform.SetParent(playerTransform);
-            Debug.Log("2 "+StaticPartEffect.transform.position);
             StaticPartEffect.transform.localPosition = staticEffectPositionRelationPlayer;
             StaticPartEffect.transform.localRotation = staticEffectRotationRelationPlayer;
-            Debug.Log("xd " + StaticPartEffect.transform.position);
             gameObject.transform.parent = null;
-            Debug.Log("cooo " + StaticPartEffect.transform.position);
         }
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterStats))]
 public class CharacterControllerDamage : MonoBehaviour
 {
     //Components.
@@ -20,16 +22,17 @@ public class CharacterControllerDamage : MonoBehaviour
         collider = GetComponent<CapsuleCollider>();
         animator = GetComponent<Animator>();
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         var _attack = other.transform.GetComponent<Attack>();
-        if (other.tag == "Attack" && 
-            (_attack.damageDealer == null  || _attack.damageDealer.tag != gameObject.tag))
+        if (other.tag == "Attack" &&
+            (_attack.damageDealer == null || _attack.damageDealer.tag != gameObject.tag))
         {
+            Debug.Log(_attack.damageDealer + " hit "+ gameObject.tag);
             GetHit(_attack);
         }
-        else if(other.tag == "PowerUp")
+        else if (other.tag == "PowerUp")
         {
 
         }
@@ -40,19 +43,28 @@ public class CharacterControllerDamage : MonoBehaviour
         playerStats.DealDamage(attack);
         if (playerStats.IsDead())
         {
-            StartCoroutine(_Die());
+            if (characterController != null)
+            {
+                StartCoroutine(_Die());
+            }
         }
         else
         {
-            StartCoroutine(_GetHit());
+            if (characterController != null)
+            {
+                StartCoroutine(_GetHit());
+            }
         }
     }
 
     public IEnumerator _GetHit()
     {
         characterController.isBusy = true;
-        yield return new WaitUntil(() =>characterController.isGrounded);
-        animator.SetTrigger("GetHitTrigger");
+        yield return new WaitUntil(() => characterController.isGrounded);
+        if (animator != null)
+        {
+            animator.SetTrigger("GetHitTrigger");
+        }
         yield return new WaitForSeconds(getHitDuration);
         characterController.isBusy = false;
     }
@@ -61,6 +73,9 @@ public class CharacterControllerDamage : MonoBehaviour
     {
         characterController.isBusy = true;
         yield return new WaitUntil(() => characterController.isGrounded);
-        animator.SetTrigger("DeathTrigger");
+        if (animator != null)
+        {
+            animator.SetTrigger("DeathTrigger");
+        }
     }
 }

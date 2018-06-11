@@ -109,6 +109,18 @@ public class CharacterControllerRB : MonoBehaviour
         }
     }
 
+    public void BeBusy(float timeToBeBusy)
+    {
+        StartCoroutine(IBeBusy(timeToBeBusy));
+    }
+
+    private IEnumerator IBeBusy(float timeToBeBusy)
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(timeToBeBusy);
+        isBusy = false;
+    }
+
     private void LookAtBoss()
     {
         if (bossArea)
