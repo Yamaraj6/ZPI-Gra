@@ -7,66 +7,52 @@ public class SkillDrawManager : MonoBehaviour
     [SerializeField]
     private ParticleSystem particle;
 
-    private Rect drawArea;    
+    private Rect drawArea;
+    private ParticleSystem.EmissionModule emissionModule;
     private RuntimePlatform platform;
-    private List<Point> points = new List<Point>();
-    private bool recognized;
-    private int strokeId = -1;
-    private int vertexCount = 0;
-    private Vector3 virtualKeyPosition;
+    private List<Point> points = new List<Point>();    
+    private Vector3 virtualKeyPosition;       
+
+    private const int STROKE_ID = 0;
 
     void Start()
     {
         platform = Application.platform;
         RectTransform _rt = this.GetComponent<RectTransform>();                
         drawArea = ConvertToScreenSize(_rt);
-        particle.gameObject.SetActive(false);
-        Debug.Log(string.Format("DrawArea Position: ({0}, {1})", drawArea.position.x, drawArea.position.y));
-        Debug.Log(string.Format("DrawArea Size: ({0}, {1})", drawArea.size.x, drawArea.size.y));
+        emissionModule = particle.emission;
+        particle.gameObject.SetActive(false);        
     }
 
     void Update()
     {
         virtualKeyPosition = GetTouchPosition();
-        
+        particle.transform.position = virtualKeyPosition;
+
         if (drawArea.Contains(virtualKeyPosition))
         {            
-            particle.transform.position = virtualKeyPosition;            
             particle.gameObject.SetActive(true);
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (recognized)
-                {
-                    ClearDrawPanel();
-                }
-                ++strokeId;                
-                vertexCount = 0;
-            }           
-            
+            emissionModule.enabled = true;
+                  
             if (Input.GetMouseButton(0))
             {
                 AddDrawnPoints();
-            }
+            }            
         }
+        else
+        {
+            emissionModule.enabled = false;
+        }
+
         if (Input.GetMouseButtonUp(0))
-        {                     
+        {
             FinishDraw();            
-        }        
+        }
     }    
 
     private void AddDrawnPoints()
     {
-        points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));        
-    }
-
-    private void ClearDrawPanel()
-    {
-        recognized = false;
-        strokeId = -1;
-        points.Clear();
-
-        particle.Clear();
-        particle.gameObject.SetActive(false);
+        points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, STROKE_ID));        
     }
 
     private Rect ConvertToScreenSize(RectTransform rt)
@@ -78,10 +64,15 @@ public class SkillDrawManager : MonoBehaviour
     }
 
     private void FinishDraw()
-    {
-        recognized = true;
-        Messenger<List<Point>>.Broadcast(GameEvent.SKILL_DRAW, points);
-    }
+    {        
+        if(points.Count > 0 && HasDifferentPoints())
+        {
+            Messenger<List<Point>>.Broadcast(GameEvent.SKILL_DRAW, points);
+        }
+        points.Clear();
+        particle.Clear();
+        particle.gameObject.SetActive(false);
+    }    
 
     private Vector3 GetTouchPosition()
     {
@@ -101,7 +92,20 @@ public class SkillDrawManager : MonoBehaviour
                 _virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
             }
         }
-
+      
         return _virtualKeyPosition;
+    }
+
+    private bool HasDifferentPoints()
+    {
+        bool _hasDifferentPoints = false;
+        for (int i = 1; i < this.points.Count && !_hasDifferentPoints; i++)
+        {
+            if (!Mathf.Approximately(points[i - 1].X, points[i].X) || !Mathf.Approximately(points[i - 1].Y, points[i].Y))
+            {
+                _hasDifferentPoints = true;
+            }
+        }
+        return _hasDifferentPoints;
     }
 }
