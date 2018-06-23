@@ -38,6 +38,7 @@ namespace ZPIGame.Assets.DataManager.Scripts.GameManagers
             if (!_antiCheatLogic.CheckIfCheated(playerResponse.Player, _playerContainer.Player))
             {
                 _playerContainer.Player = playerResponse.Player;
+                Debug.Log("Please do not cheat anymore!!!");
             }
 
 

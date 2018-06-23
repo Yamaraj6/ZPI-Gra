@@ -4,6 +4,7 @@ using Assets.DataManager.Scripts.Containers;
 using Assets.Scripts.Containers;
 using Zenject;
 using ZPIGame.Assets.DataManager.Scripts.AntiCheat;
+using ZPIGame.Assets.DataManager.Scripts.Configuration;
 using ZPIGame.Assets.DataManager.Scripts.FirstLaunch;
 
 
@@ -42,6 +43,7 @@ public class ContainerInstaller : MonoInstaller
         DiContainer.Bind<ICardService>().To<CardService>().AsSingle();
         DiContainer.Bind<ICardContainer>().To<CardContainer>().AsSingle();
         DiContainer.Bind<IAntiCheatLogic>().To<AntiCheatLogic>().AsSingle();
+        DiContainer.Bind<IStoreConfiguration>().To<StoreConfiguration>().AsSingle();
 
     }
 }

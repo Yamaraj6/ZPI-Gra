@@ -9,5 +9,10 @@
     <ServiceConnectorConfiguration>
         <ServiceUrl>http://localhost:5000/</ServiceUrl>
     </ServiceConnectorConfiguration>
+    <StoreConfiguration>
+        <MaxCardPower>5</MaxCardPower>
+        <MaxCardManaCost>5</MaxCardManaCost>
+        <MaxCardCastingTime>5</MaxCardCastingTime>
+    </StoreConfiguration>
 </root>
 

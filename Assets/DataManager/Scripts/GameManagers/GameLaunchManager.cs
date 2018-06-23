@@ -22,11 +22,14 @@ namespace Assets.DataManager.Scripts.GameManagers
             if (playerResponse == null)
             {
                 Debug.Log($"Could not get player data from api. Player id: {_playerContainer.Player.Id}");
+                return;
             }
 
             _playerContainer.Player = playerResponse.Player;
             Debug.Log($"Succesfully downloaded player with id: {_playerContainer.Player.Id}");
             _playerContainer.SavePlayer();
+
+
         }
 
     }

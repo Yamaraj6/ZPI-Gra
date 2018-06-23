@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Direction {
+public enum Direction
+{
     Forward, Backward, Up, Down, Left, Right
 }
