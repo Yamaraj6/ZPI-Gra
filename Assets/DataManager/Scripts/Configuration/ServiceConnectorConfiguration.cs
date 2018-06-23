@@ -19,6 +19,6 @@ namespace Assets.DataManager.Scripts.Configuration
             this.Config = myConfig;
         }
 
-        public string ServiceUrl => Config.Configuration.GetConfiguration("CharacterAnimationController", "ServiceUrl", typeof(string)); //todo temprtary adress config
+        public string ServiceUrl => Config.Configuration.GetConfiguration("ServiceConnectorConfiguration", "ServiceUrl", typeof(string)); //todo temprtary adress config
     }
 }

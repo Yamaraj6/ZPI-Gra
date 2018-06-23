@@ -27,7 +27,7 @@ namespace Assets.DataManager.Scripts.Api
         public async Task<TResponse> GetReportResponse<TRequest, TResponse>(string uri, TRequest request) where TResponse : class
         {
             var client = new HttpClient();
-            var requestUrl = "http://localhost:5000/" + uri; //_apiServiceUrl + uri;
+            var requestUrl = _apiServiceUrl + uri;
             Debug.Log($"Connecting to {requestUrl}");
             var message = new HttpRequestMessage(HttpMethod.Post, requestUrl)
             {
@@ -52,7 +52,7 @@ namespace Assets.DataManager.Scripts.Api
         {
 
             var client = new HttpClient();
-            var requestUrl = "http://localhost:5000/" + uri;
+            var requestUrl = _apiServiceUrl + uri;
 
             var resp = await client.GetAsync(requestUrl);
             var content = await resp.Content.ReadAsStringAsync();

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CharacterAnimationController>
-    <Speed>10</Speed>
-    <JumpingSpeed>10</JumpingSpeed>
-    <RotatingSpeed>10</RotatingSpeed>
-    <ServiceUrl>test.com</ServiceUrl>
+<root>
+    <CharacterAnimationController>
+        <Speed>10</Speed>
+        <JumpingSpeed>10</JumpingSpeed>
+        <RotatingSpeed>10</RotatingSpeed>
 
-</CharacterAnimationController>
+    </CharacterAnimationController>
+    <ServiceConnectorConfiguration>
+        <ServiceUrl>http://localhost:5000/</ServiceUrl>
+    </ServiceConnectorConfiguration>
+</root>
+
