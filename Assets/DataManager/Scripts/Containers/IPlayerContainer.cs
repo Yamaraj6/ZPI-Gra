@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Models;
+﻿using Assets.DataManager.Scripts.Models;
 
 namespace Assets.Scripts.Containers
 {

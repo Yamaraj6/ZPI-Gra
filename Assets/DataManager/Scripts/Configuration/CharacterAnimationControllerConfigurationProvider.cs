@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Scripts.Configuration
+﻿namespace Assets.DataManager.Scripts.Configuration
 {
     public interface ICharacterAnimationControllerConfigurationProvider
     {
@@ -22,28 +16,10 @@ namespace Assets.Scripts.Configuration
             this.Config = myConfig;
         }
 
-        public float Speed
-        {
-            get
-            {
-                return Config.Configuration.GetConfiguration("CharacterAnimationController", "Speed", typeof(float));
-            }
-        }
+        public float Speed => Config.Configuration.GetConfiguration("CharacterAnimationController", "Speed", typeof(float));
 
-        public float JumpingSpeed
-        {
-            get
-            {
-                return Config.Configuration.GetConfiguration("CharacterAnimationController", "JumpingSpeed", typeof(float));
-            }
-        }
+        public float JumpingSpeed => Config.Configuration.GetConfiguration("CharacterAnimationController", "JumpingSpeed", typeof(float));
 
-        public float RotatingSpeed
-        {
-            get
-            {
-                return Config.Configuration.GetConfiguration("CharacterAnimationController", "RotatingSpeed", typeof(float));
-            }
-        }
+        public float RotatingSpeed => Config.Configuration.GetConfiguration("CharacterAnimationController", "RotatingSpeed", typeof(float));
     }
 }

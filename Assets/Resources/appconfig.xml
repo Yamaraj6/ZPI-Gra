@@ -3,4 +3,6 @@
     <Speed>10</Speed>
     <JumpingSpeed>10</JumpingSpeed>
     <RotatingSpeed>10</RotatingSpeed>
+    <ServiceUrl>test.com</ServiceUrl>
+
 </CharacterAnimationController>

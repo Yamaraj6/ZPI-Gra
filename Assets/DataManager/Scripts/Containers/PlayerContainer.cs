@@ -1,26 +1,21 @@
-﻿using Assets.Scripts.Models;
+﻿using System.IO;
+using Assets.DataManager.Scripts.Models;
+using Assets.Scripts.Containers;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Containers
+namespace Assets.DataManager.Scripts.Containers
 {
     public class PlayerContainer : IPlayerContainer
     {
         public Player Player { get; set; }
 
-        private string path = Application.persistentDataPath + @"/PlayerData.json";
+        private readonly string path = Application.persistentDataPath + @"/PlayerData.json";
 
 
         public PlayerContainer()
         {
-
-            LoadPlayer();
+           LoadPlayer();
         }
 
         private void LoadPlayer()

@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml;
 using UnityEngine;
-using Zenject;
 
-namespace Assets.Scripts.Configuration
+namespace Assets.DataManager.Scripts.Configuration
 {
     public class MyConfig
     {
-        private string configFileName = "appconfig";
-        private string path = Application.persistentDataPath + @"/appconfig.xml";
+        private const string ConfigFileName = "appconfig";
+        private readonly string _path = Application.persistentDataPath + @"/appconfig.xml";
 
         public XmlDocument Configuration { get; private set; }
 
@@ -34,15 +28,18 @@ namespace Assets.Scripts.Configuration
 
         private void LoadConfigurationFile()
         {
-            if (!File.Exists(path))
+            if (!File.Exists(_path))
             {
-                var xmlAsset = Resources.Load(configFileName) as TextAsset;
-                var content = xmlAsset.text;
-                File.WriteAllText(path, content);
+                var xmlAsset = Resources.Load(ConfigFileName) as TextAsset;
+                if (xmlAsset != null)
+                {
+                    var content = xmlAsset.text;
+                    File.WriteAllText(_path, content);
+                }
             }
 
             Configuration = new XmlDocument();
-            Configuration.Load(path);
+            Configuration.Load(_path);
 
         }
     }
